@@ -130,10 +130,11 @@ var books = [
   var filterList = function () {
     var char = $characterSelect.val(),
       loc = $locationSelect.val();
+    console.log([char, loc]);
 
     $list.shuffle('shuffle', function ($el) {
-      return (char === '' || $el.data('characters').indexOf(char) !== -1) &&
-        (loc === '' || $el.data('locations').indexOf(loc) !== -1);
+      return (char === 'All' || $el.data('characters').indexOf(char) !== -1) &&
+             (loc === 'All' || $el.data('locations').indexOf(loc) !== -1);
     });
   };
 
