@@ -119,7 +119,7 @@ var books = [
 
 
   var $images = $list.find('img');
-  var imgLoad = new imagesLoaded($images.get());
+  var imgLoad = new imagesLoaded($images.get()); //eslint-disable-line new-cap
   imgLoad.on('always', function () {
     $list.shuffle({
       itemSelector: '.book'
