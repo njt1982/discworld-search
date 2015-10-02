@@ -1,21 +1,21 @@
 {
-  "name": "Discworld",
-  "version": "0.0.0",
-  "authors": [
-    "Nicholas Thompson <njt1982@gmail.com>"
-  ],
-  "description": "",
-  "main": "index.html",
-  "license": "GPLv3",
+  "name": "discworld",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.1"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
   "devDependencies": {
-    "jquery": "~2.1.4"
+    "chai": "~3.3.0",
+    "mocha": "~2.3.3"
   }
 }
