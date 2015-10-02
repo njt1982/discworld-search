@@ -2,7 +2,7 @@
 var books = [
   {
     title: 'The Colour of Magic',
-    cover: '/images/covers/Cover_The_Colour_Of_Magic.jpg',
+    cover: 'images/covers/Cover_The_Colour_Of_Magic.jpg',
     links: {
       amazon: 'http://www.amazon.co.uk/dp/0552124753'
     },
@@ -25,7 +25,7 @@ var books = [
   },
   {
     title: 'The Light Fantastic',
-    cover: '/images/covers/Cover_The_Light_Fantastic.jpg',
+    cover: 'images/covers/Cover_The_Light_Fantastic.jpg',
     links: {
       amazon: 'http://www.amazon.co.uk/dp/055216660X'
     },
@@ -48,7 +48,7 @@ var books = [
   },
   {
     title: 'Equal Rites',
-    cover: '/images/covers/Equal_Rites.jpg',
+    cover: 'images/covers/Equal_Rites.jpg',
     links: {
       amazon: 'http://www.amazon.co.uk/dp/0552166618'
     },
@@ -68,7 +68,7 @@ var books = [
   },
   {
     title: 'Mort',
-    cover: '/images/covers/Cover_Mort.jpg',
+    cover: 'images/covers/Cover_Mort.jpg',
     links: {
       amazon: 'http://www.amazon.co.uk/dp/0552166626'
     },
