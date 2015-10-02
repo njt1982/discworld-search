@@ -57,3 +57,24 @@ body {
     padding: 14px 24px;
   }
 }
+
+#book_list {
+  margin:1em 0;
+  a.book {
+    text-decoration: none;
+    text-align: center;
+    color: $text-color;
+    &:hover {
+      background-color: $gray-lighter;
+    }
+  }
+  h3 {
+    line-height: 1.1em;
+    min-height: 2.2em;
+  }
+  img {
+    max-width: 100%;
+    margin-top: ($line-height-computed / 2);
+    margin-bottom: $line-height-computed;
+  }
+}
