@@ -23,6 +23,11 @@ gulp.task('styles', () => {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('copy', () => {
+  return gulp.src(['bower_components/chosen/*.png'])
+    .pipe(gulp.dest('dist/styles'));
+});
+
 function lint(files, options) {
   return () => {
     return gulp.src(files)
@@ -52,7 +57,7 @@ gulp.task('templates', () => {
     .pipe(gulp.dest('.tmp/templates'));
 });
 
-gulp.task('html', ['styles', 'templates'], () => {
+gulp.task('html', ['styles', 'templates', 'copy'], () => {
   const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
   return gulp.src('app/*.html')

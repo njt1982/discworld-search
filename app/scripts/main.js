@@ -1,4 +1,4 @@
-/* jslint browser: true */ /*global jQuery Discworld imagesLoaded */
+/* jslint browser: true */ /*global jQuery Discworld imagesLoaded _ */
 var books = [
   {
     title: 'The Colour of Magic',
@@ -128,13 +128,13 @@ var books = [
 
 
   var filterList = function () {
-    var char = $characterSelect.val(),
-      loc = $locationSelect.val();
-    console.log([char, loc]);
+    var selectedCharacters = $characterSelect.val(),
+      selectedLocations = $locationSelect.val();
+    console.log([selectedCharacters, selectedLocations]);
 
     $list.shuffle('shuffle', function ($el) {
-      return (char === 'All' || $el.data('characters').indexOf(char) !== -1) &&
-             (loc === 'All' || $el.data('locations').indexOf(loc) !== -1);
+      return (selectedCharacters === null || _.intersection($el.data('characters'), selectedCharacters).length === selectedCharacters.length) &&
+             (selectedLocations === null || _.intersection($el.data('locations'), selectedLocations).length === selectedLocations.length);
     });
   };
 
@@ -147,6 +147,7 @@ var books = [
         .text(v));
   });
   $characterSelect.on('change', filterList);
+  $characterSelect.chosen();
 
 
   locations.sort();
@@ -157,4 +158,5 @@ var books = [
         .text(v));
   });
   $locationSelect.on('change', filterList);
+  $locationSelect.chosen();
 })(jQuery);

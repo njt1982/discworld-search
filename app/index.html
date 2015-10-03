@@ -11,6 +11,7 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/chosen/chosen.min.css">
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -46,17 +47,15 @@
       </div>
 
       <div class="row">
-        <form class="form-inline col-md-12">
-          <div class="form-group">
-            <label for="character">Character: </label>
-            <select id="character" name="character" class="form-control">
-              <option value="All">All</option>
+        <form class="form-inline">
+          <div class="form-group col-md-6">
+            <label for="character" class="col-md-3">Character: </label>
+            <select id="character" name="character" class="col-md-9" multiple>
             </select>
           </div>
-          <div class="form-group">
-            <label for="location">Location: </label>
-            <select id="location" name="location" class="form-control">
-              <option value="All">All</option>
+          <div class="form-group col-md-6">
+            <label for="location" class="col-md-3">Location: </label>
+            <select id="location" name="location" class="col-md-9" multiple>
             </select>
           </div>
         </form>
@@ -92,6 +91,7 @@
     <script src="/bower_components/eventEmitter/EventEmitter.js"></script>
     <script src="/bower_components/eventie/eventie.js"></script>
     <script src="/bower_components/imagesloaded/imagesloaded.js"></script>
+    <script src="/bower_components/chosen/chosen.jquery.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     
