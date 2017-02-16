@@ -2,13 +2,12 @@
   "name": "discworld-search",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "~3.3.5",
-    "modernizr": "~2.8.1",
-    "handlebars": "^3.0.0",
-    "shufflejs": "~3.1.1",
-    "lodash": "~3.10.1",
-    "imagesloaded": "~3.1.8",
-    "chosen": "~1.4.2"
+    "bootstrap-sass": "~3.3.7",
+    "handlebars": "^4.0.0",
+    "shufflejs": "~4.0.2",
+    "lodash": "~4.16.1",
+    "imagesloaded": "~4.1.1",
+    "chosen": "~1.6.2"
   },
   "overrides": {
     "bootstrap-sass": {

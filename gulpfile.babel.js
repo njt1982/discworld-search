@@ -1,4 +1,5 @@
-// generated on 2015-10-02 using generator-gulp-webapp 1.0.3
+'use strict';
+
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
@@ -49,7 +50,9 @@ gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('templates', () => {
   return gulp.src('app/templates/**/*.hbs')
-    .pipe($.handlebars())
+    .pipe($.handlebars({
+      handlebars: require('handlebars')
+    }))
     .pipe($.defineModule('plain'))
     .pipe($.declare({
       namespace: 'Discworld.templates'
@@ -58,14 +61,10 @@ gulp.task('templates', () => {
 });
 
 gulp.task('html', ['styles', 'templates', 'copy'], () => {
-  const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
-
   return gulp.src('app/*.html')
-    .pipe(assets)
+    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
-    .pipe(assets.restore())
-    .pipe($.useref())
+    .pipe($.if('*.css', $.cleanCss({compatibility: 'ie9'})))
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
 });
