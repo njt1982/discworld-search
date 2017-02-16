@@ -7,22 +7,37 @@ $border-radius-large: 0;
 
 
 #book_list {
-  margin:1em 0;
   a.book {
+    margin: 0 0 $line-height-computed 0;
     text-decoration: none;
     text-align: center;
     color: $text-color;
     &:hover {
       background-color: $gray-lighter;
     }
-  }
-  h3 {
-    line-height: 1.1em;
-    min-height: 2.2em;
-  }
-  img {
-    max-width: 100%;
-    margin-top: ($line-height-computed / 2);
-    margin-bottom: $line-height-computed;
+    div.title {
+      display: table;
+      width: 100%;
+      margin-bottom: ($line-height-computed / 2);
+      h3 {
+        display: table-cell;
+        line-height: 1.1em;
+        height: 4.4em;
+        text-align: center;
+        vertical-align: bottom;
+      }
+    }
+    div.cover {
+      padding-top: 175%;
+      position: relative;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-width: 100%;
+      }
+    }
   }
 }

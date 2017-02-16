@@ -210,6 +210,192 @@ var books = [
     links: {},
     characters: [],
     locations: []
+  },
+  {
+    cover: 'images/covers/missing.png',
+    title: 'Theatre of Cruelty',
+    year: 1993,
+    series: ['Short story']
+  },
+  {
+    cover: 'images/covers/Soul_Music.jpg',
+    title: 'Soul Music',
+    year: 1994,
+    series: ['Death']
+  },
+  {
+    cover: 'images/covers/Interesting_Times.jpg',
+    title: 'Interesting Times',
+    year: 1994,
+    series: ['Rincewind']
+  },
+  {
+    cover: 'images/covers/Maskerade.jpg',
+    title: 'Maskerade',
+    year: 1995,
+    series: ['Witches']
+  },
+  {
+    cover: 'images/covers/Feet_of_Clay.jpg',
+    title: 'Feet of Clay',
+    year: 1996,
+    series: ['City Watch']
+  },
+  {
+    cover: 'images/covers/Hogfather.jpg',
+    title: 'Hogfather',
+    year: 1996,
+    series: ['Death']
+  },
+  {
+    cover: 'images/covers/Jingo.jpg',
+    title: 'Jingo',
+    year: 1997,
+    series: ['City Watch']
+  },
+  {
+    cover: 'images/covers/The_Last_Continent.jpg',
+    title: 'The Last Continent',
+    year: 1998,
+    series: ['Rincewind']
+  },
+  {
+    cover: 'images/covers/Carpe_Jugulum.jpg',
+    title: 'Carpe Jugulum',
+    year: 1998,
+    series: ['Witches']
+  },
+  {
+    cover: 'images/covers/missing.png',
+    title: 'The Sea and Little Fishes',
+    year: 1998,
+    series: ['Short story']
+  },
+  {
+    cover: 'images/covers/The_Fith_Elephant.jpg',
+    title: 'The Fifth Elephant',
+    year: 1999,
+    series: ['City Watch']
+  },
+  {
+    cover: 'images/covers/The_Truth.jpg',
+    title: 'The Truth',
+    year: 2000,
+    series: ['One-off']
+  },
+  {
+    cover: 'images/covers/Thief_of_Time.jpg',
+    title: 'Thief of Time',
+    year: 2001,
+    series: ['Death']
+  },
+  {
+    cover: 'images/covers/The_Last_Hero.jpg',
+    title: 'The Last Hero',
+    year: 2001,
+    series: ['Rincewind']
+  },
+  {
+    cover: 'images/covers/missing.png',
+    title: 'The Amazing Maurice And His Educated Rodents',
+    year: 2001,
+    series: ['One-off']
+  },
+  {
+    cover: 'images/covers/Night_Watch.jpg',
+    title: 'Night Watch',
+    year: 2002,
+    series: ['City Watch']
+  },
+  {
+    cover: 'images/covers/missing.png',
+    title: 'Death and What Comes Next',
+    year: 2002,
+    series: ['Short story']
+  },
+  {
+    cover: 'images/covers/The_Wee_Free_Men.jpg',
+    title: 'The Wee Free Men',
+    year: 2003,
+    series: ['Wee Free Men']
+  },
+  {
+    cover: 'images/covers/Monstrous_Regiment.jpg',
+    title: 'Monstrous Regiment',
+    year: 2003,
+    series: ['One-off']
+  },
+  {
+    cover: 'images/covers/A_Hat_Full_of_Sky.jpg',
+    title: 'A Hat Full of Sky',
+    year: 2004,
+    series: ['Wee Free Men']
+  },
+  {
+    cover: 'images/covers/Going_Postal.jpg',
+    title: 'Going Postal',
+    year: 2004,
+    series: ['Post Office']
+  },
+  {
+    cover: 'images/covers/missing.png',
+    title: 'Once More* With Footnotes',
+    year: 2004,
+    series: ['Compilation of short works']
+  },
+  {
+    cover: 'images/covers/Thud.jpg',
+    title: 'Thud!',
+    year: 2005,
+    series: ['City Watch']
+  },
+  {
+    cover: 'images/covers/Wheres_My_Cow.jpg',
+    title: 'Where\'s my cow',
+    year: 2005,
+    series: ['Other']
+  },
+  {
+    cover: 'images/covers/Wintersmith.jpg',
+    title: 'Wintersmith',
+    year: 2006,
+    series: ['Wee Free Men']
+  },
+  {
+    cover: 'images/covers/Making_Money.jpg',
+    title: 'Making Money',
+    year: 2007,
+    series: ['Post Office']
+  },
+  {
+    cover: 'images/covers/UnseenAcademicals.jpg',
+    title: 'Unseen Academicals',
+    year: 2009,
+    series: ['The Wizards', 'Rincewind']
+  },
+  {
+    cover: 'images/covers/I_Shall_Wear_Midnight.jpg',
+    title: 'I Shall Wear Midnight',
+    year: 2010,
+    series: ['Wee Free Men']
+  },
+  {
+    cover: 'images/covers/Snuff.jpg',
+    title: 'Snuff',
+    year: 2011,
+    series: ['City Watch', 'Sam Vimes']
+  },
+  {
+    cover: 'images/covers/Raising_Steam.jpg',
+    title: 'Raising Steam',
+    year: 2013,
+    series: ['Post Office']
+  },
+  {
+    cover: 'images/covers/The_Shepherds_Crown.jpg',
+    title: 'The Shepherd\'s Crown',
+    year: 2015,
+    series: ['Wee Free Men']
   }
 ];
 
