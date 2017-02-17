@@ -2,23 +2,36 @@ $icon-font-path: '../fonts/';
 $border-radius-large: 0;
 
 // bower:scss
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/bootstrap/scss/bootstrap.scss";
 // endbower
 
+.jumbotron {
+  transition: all 0.5s ease;
+  body.compact-header & {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgba(#eceeef, 0.95);
+  }
+}
+
+#content {
+  margin-top: 16em;
+}
 
 #book_list {
-  a.book {
-    margin: 0 0 $line-height-computed 0;
+  .book {
+    margin: 0 0 $line-height-base 0;
     text-decoration: none;
     text-align: center;
-    color: $text-color;
+    color: $body-color;
+    cursor: pointer;
     &:hover {
       background-color: $gray-lighter;
     }
     div.title {
       display: table;
       width: 100%;
-      margin-bottom: ($line-height-computed / 2);
+      margin-bottom: ($line-height-base / 2);
       h3 {
         display: table-cell;
         line-height: 1.1em;

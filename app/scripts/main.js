@@ -6,7 +6,7 @@ var books = [
     year: 1983,
     series: ['Rincewind'],
     links: {
-      amazon: 'http://www.amazon.co.uk/dp/0552124753'
+      asin: '0552124753'
     },
     characters: [
       'Bel-Shamharoth',
@@ -31,7 +31,7 @@ var books = [
     year: 1986,
     series: ['Rincewind'],
     links: {
-      amazon: 'http://www.amazon.co.uk/dp/055216660X'
+      asin: '055216660X'
     },
     characters: [
       'Conan',
@@ -56,7 +56,7 @@ var books = [
     year: 1987,
     series: ['Witches'],
     links: {
-      amazon: 'http://www.amazon.co.uk/dp/0552166618'
+      asin: '0552166618'
     },
     characters: [
       'Granny Weatherwax',
@@ -78,7 +78,7 @@ var books = [
     year: 1987,
     series: ['Death'],
     links: {
-      amazon: 'http://www.amazon.co.uk/dp/0552166626'
+      asin: '0552166626'
     },
     characters: [
       'Death',
@@ -399,8 +399,36 @@ var books = [
   }
 ];
 
+var associate_id = 'discwsearc-21';
+
 (function ($, Shuffle) {
   'use strict';
+
+  // Header class resize
+  var timer;
+  var $body = $('body');
+  var $document = $(document);
+  var scrolling = false;
+  $(window).scroll(function() { scrolling = true; });
+  setInterval(function() {
+    if (scrolling) {
+      var scrollTop = $document.scrollTop();
+      if (scrollTop > 10) {
+        $body.addClass('compact-header');
+      }
+      else {
+        $body.removeClass('compact-header');
+      }
+      scrolling = false;
+    }
+  }, 250);
+
+  $('.left-column form').sticky({
+    topSpacing: 150,
+    getWidthFrom: '.left-column',
+    responsiveWidth: true
+  });
+
   var $list = $('#book_list'),
     $characterSelect = $('#character'),
     $seriesSelect = $('#series'),
@@ -492,4 +520,13 @@ var books = [
   });
   $seriesSelect.on('change', filterList);
   $seriesSelect.chosen();
+
+  $list.on('click', '.book', function(event) {
+    var $book = $(event.currentTarget);
+    console.log($book.data('asin'));
+
+    var url = 'https://amazon.co.uk/gp/product/' + $book.data('asin') + '?tag=' + associate_id;
+    window.open(url, '_blank');
+
+  });
 })(jQuery, window.shuffle);

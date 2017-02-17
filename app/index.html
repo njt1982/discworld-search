@@ -24,7 +24,7 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron-fluid fixed-top">
       <div class="container">
         <h1>Discworld Book Browser!</h1>
         <p class="lead">Find a book by its character.</p>
@@ -32,7 +32,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container" id="content">
       <div class="row">
         <div class="left-column col-xs-12 col-sm-4 col-md-3">
           <form>
@@ -79,14 +79,15 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <!-- <script src="/bower_components/modernizr/modernizr.js"></script> -->
+    <script src="/bower_components/tether/dist/js/tether.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bower_components/handlebars/handlebars.js"></script>
     <script src="/bower_components/shufflejs/dist/shuffle.js"></script>
     <script src="/bower_components/lodash/lodash.js"></script>
-<!--     <script src="/bower_components/eventEmitter/EventEmitter.js"></script>
-    <script src="/bower_components/eventie/eventie.js"></script> -->
-    <script src="/bower_components/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="/bower_components/ev-emitter/ev-emitter.js"></script>
+    <script src="/bower_components/imagesloaded/imagesloaded.js"></script>
     <script src="/bower_components/chosen/chosen.jquery.js"></script>
+    <script src="/bower_components/stickyjs/stickyjs.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
