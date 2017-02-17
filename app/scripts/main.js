@@ -101,7 +101,9 @@ var books = [
     cover: 'images/covers/Sourcery.jpg',
     year: ['1988'],
     series: ['Rincewind'],
-    links: {},
+    links: {
+      asin: '0552166634'
+    },
     characters: [
       'Rincewind',
       'Coin',
@@ -109,6 +111,8 @@ var books = [
       'Nijel',
     ],
     locations: [
+      'Ankh-Morpork',
+      'Klatch'
     ]
   },
   {
@@ -118,8 +122,13 @@ var books = [
     series: ['Witches'],
     links: {
     },
-    characters: [],
-    locations: []
+    characters: [
+      'Granny Weatherwax',
+      'Nanny Ogg',
+      'Magrat Garlick',
+      'Verence the Fool'
+    ],
+    locations: ['Lancre']
   },
   {
     title: 'Pyramids',
@@ -127,8 +136,12 @@ var books = [
     year: ['1989'],
     series: ['One-off'],
     links: {},
-    characters: [],
-    locations: []
+    characters: ['Pteppic', 'Dios'],
+    locations: [
+      'Djelibeybi',
+      'Assassins Guild',
+      'Ankh-Morpork'
+    ]
   },
   {
     title: 'Guards! Guards!',
@@ -136,8 +149,15 @@ var books = [
     year: ['1989'],
     series: ['City Watch'],
     links: {},
-    characters: [],
-    locations: []
+    characters: [
+      'Samuel Vimes',
+      'Fred Colon',
+      'Nobby Nobbs',
+      'Carrot Ironfoundersson',
+      'Havelock Vetinari',
+      'Sybil Ramkin'
+    ],
+    locations: ['Ankh-Morpork']
   },
   {
     title: 'Eric',
