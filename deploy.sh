@@ -41,7 +41,9 @@ ssh-add deploy_key
 git clone $REPO -b $TARGET_BRANCH dist
 
 # Clean out existing contents
-rm -rf dist/**/* || exit 0
+cd dist
+git ls-files | xargs rm -rf
+cd ..
 
 # Run our compile script
 doCompile
