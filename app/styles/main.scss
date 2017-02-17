@@ -1,21 +1,47 @@
 $icon-font-path: '../fonts/';
 $border-radius-large: 0;
+$headings-font-family: 'Slabo 27px';
+$headings-font-weight: 400;
+$font-family-sans-serif: 'Open Sans Condensed', sans-serif;
+$font-weight-normal:300;
 
 // bower:scss
 @import "bower_components/bootstrap/scss/bootstrap.scss";
 // endbower
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Slabo+27px');
+
+
 .jumbotron {
-  transition: all 0.5s ease;
+  &, p.lead, h1 {
+    transition: all 0.5s ease;
+  }
+  p.lead {
+    height: 1.875em;
+    overflow: hidden;
+    opacity: 1;
+  }
   body.compact-header & {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     background-color: rgba(#eceeef, 0.95);
+    p.lead {
+      height: 0;
+      margin:0;
+      opacity: 0;
+    }
+    h1 {
+      margin: 0;
+    }
   }
 }
 
 #content {
   margin-top: 16em;
+  transition: all 0.5s ease;
+  body.compact-header & {
+    margin-top: 4em;
+  }
 }
 
 #book_list {
@@ -31,7 +57,7 @@ $border-radius-large: 0;
     div.title {
       display: table;
       width: 100%;
-      margin-bottom: ($line-height-base / 2);
+      margin-bottom: 1rem;
       h3 {
         display: table-cell;
         line-height: 1.1em;
