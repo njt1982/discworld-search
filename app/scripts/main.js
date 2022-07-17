@@ -1,13 +1,20 @@
-/* jslint browser: true */ /*global jQuery Discworld imagesLoaded _ */
+import jQuery from 'jquery';
+import imagesLoaded from 'imagesloaded';
+import select2 from 'select2';
+import Shuffle from 'shufflejs';
+import _ from 'lodash';
+import 'sticksy';
+
 var books = [
   {
     title: 'The Colour of Magic',
     cover: 'images/covers/The_Colour_Of_Magic.jpg',
     year: ['1983'],
     series: ['Rincewind'],
-    links: {
-      asin: '0552124753'
-    },
+    links: [
+      { text: 'Paperback', isbn: '0552124753' },
+      { text: 'Hardback',  isbn: '086140324X' },
+    ],
     characters: [
       'Bel-Shamharoth',
       'Hrun, the Barbarian',
@@ -30,9 +37,10 @@ var books = [
     cover: 'images/covers/The_Light_Fantastic.jpg',
     year: ['1986'],
     series: ['Rincewind'],
-    links: {
-      asin: '055216660X'
-    },
+    links: [
+      { text: 'Paperback', isbn: '0552128481' },
+      { text: 'Hardback',  isbn: '0861402030' },
+    ],
     characters: [
       'Conan',
       'Ymper Trymon',
@@ -55,9 +63,10 @@ var books = [
     cover: 'images/covers/Equal_Rites.jpg',
     year: ['1987'],
     series: ['Witches'],
-    links: {
-      asin: '0552166618'
-    },
+    links: [
+      { text: 'Paperback', isbn: '0552131059' },
+      { text: 'Hardback',  isbn: '0575039507' },
+    ],
     characters: [
       'Granny Weatherwax',
       'Eskarina Smith',
@@ -77,9 +86,10 @@ var books = [
     cover: 'images/covers/Mort.jpg',
     year: ['1987'],
     series: ['Death'],
-    links: {
-      asin: '0552166626'
-    },
+    links: [
+      { text: 'Paperback', isbn: '0552131067' },
+      { text: 'Hardback',  isbn: '0575041714' },
+    ],
     characters: [
       'Death',
       'Mort',
@@ -101,9 +111,10 @@ var books = [
     cover: 'images/covers/Sourcery.jpg',
     year: ['1988'],
     series: ['Rincewind'],
-    links: {
-      asin: '0552166634'
-    },
+    links: [
+      { text: 'Paperback', isbn: '0552131075' },
+      { text: 'Hardback',  isbn: '0575042176' },
+    ],
     characters: [
       'Rincewind',
       'Coin',
@@ -120,8 +131,10 @@ var books = [
     cover: 'images/covers/Wyrd_Sisters.jpg',
     year: ['1988'],
     series: ['Witches'],
-    links: {
-    },
+    links: [
+      { text: 'Paperback', isbn: '0552134600' },
+      { text: 'Hardback',  isbn: '0575043636' },
+    ],
     characters: [
       'Granny Weatherwax',
       'Nanny Ogg',
@@ -135,7 +148,10 @@ var books = [
     cover: 'images/covers/Pyramids.jpg',
     year: ['1989'],
     series: ['One-off'],
-    links: {},
+    links: [
+      { text: 'Paperback', isbn: '0552134619' },
+      { text: 'Hardback',  isbn: '0575044632' },
+    ],
     characters: ['Pteppic', 'Dios'],
     locations: [
       'Djelibeybi',
@@ -148,7 +164,10 @@ var books = [
     cover: 'images/covers/GuardsGuards.jpg',
     year: ['1989'],
     series: ['City Watch'],
-    links: {},
+    links: [
+      { text: 'Paperback', isbn: '0552134627' },
+      { text: 'Hardback',  isbn: '0575046066' },
+    ],
     characters: [
       'Samuel Vimes',
       'Fred Colon',
@@ -164,7 +183,7 @@ var books = [
     cover: 'images/covers/Eric.jpg',
     year: ['1990'],
     series: ['Rincewind'],
-    links: {},
+    links: [],
     characters: [],
     locations: []
   },
@@ -173,7 +192,7 @@ var books = [
     cover: 'images/covers/Moving_Pictures.jpg',
     year: ['1990'],
     series: ['One-off'],
-    links: {},
+    links: [],
     characters: [],
     locations: []
   },
@@ -182,7 +201,7 @@ var books = [
     cover: 'images/covers/Reaper_Man.jpg',
     year: ['1991'],
     series: ['Death'],
-    links: {},
+    links: [],
     characters: [],
     locations: []
   },
@@ -191,7 +210,7 @@ var books = [
     cover: 'images/covers/Witches_Abroad.jpg',
     year: ['1991'],
     series: ['Witches'],
-    links: {},
+    links: [],
     characters: [],
     locations: []
   },
@@ -200,7 +219,7 @@ var books = [
     cover: 'images/covers/Small_Gods.jpg',
     year: ['1992'],
     series: ['One-off'],
-    links: {},
+    links: [],
     characters: [],
     locations: []
   },
@@ -209,7 +228,7 @@ var books = [
     cover: 'images/covers/Lords_And_Ladies.jpg',
     year: ['1992'],
     series: ['Witches'],
-    links: {},
+    links: [],
     characters: [],
     locations: []
   },
@@ -218,7 +237,7 @@ var books = [
     cover: 'images/covers/Troll_Bridge.jpg',
     year: ['1992'],
     series: ['Short story'],
-    links: {},
+    links: [],
     characters: [],
     locations: []
   },
@@ -227,12 +246,12 @@ var books = [
     cover: 'images/covers/Men_At_Arms.jpg',
     year: ['1993'],
     series: ['City Watch'],
-    links: {},
+    links: [],
     characters: [],
     locations: []
   },
   {
-    cover: 'images/covers/missing.png',
+    cover: 'images/covers/Theatre_of_Cruelty.jpg',
     title: 'Theatre of Cruelty',
     year: ['1993'],
     series: ['Short story']
@@ -286,7 +305,7 @@ var books = [
     series: ['Witches']
   },
   {
-    cover: 'images/covers/missing.png',
+    cover: 'images/covers/The_Sea_And_Little_Fishes.jpg',
     title: 'The Sea and Little Fishes',
     year: ['1998'],
     series: ['Short story']
@@ -316,7 +335,7 @@ var books = [
     series: ['Rincewind']
   },
   {
-    cover: 'images/covers/missing.png',
+    cover: 'images/covers/The_Amazing_Maurice_And_His_Educated_Rodents.jpg',
     title: 'The Amazing Maurice And His Educated Rodents',
     year: ['2001'],
     series: ['One-off']
@@ -328,7 +347,7 @@ var books = [
     series: ['City Watch']
   },
   {
-    cover: 'images/covers/missing.png',
+    cover: 'images/covers/Death_and_What_Comes_Next.jpg',
     title: 'Death and What Comes Next',
     year: ['2002'],
     series: ['Short story']
@@ -358,7 +377,7 @@ var books = [
     series: ['Post Office']
   },
   {
-    cover: 'images/covers/missing.png',
+    cover: 'images/covers/Once_More_With_Footnotes.jpg',
     title: 'Once More* With Footnotes',
     year: ['2004'],
     series: ['Compilation of short works']
@@ -421,16 +440,22 @@ var books = [
 
 var associate_id = 'discwsearc-21';
 
-(function ($, Shuffle) {
+(function ($, select2, Shuffle, _, Sticksy) {
   'use strict';
 
-  var $stickyForm = $('.left-column form');
-  $stickyForm.sticky({
-    topSpacing: 92,
-    getWidthFrom: '.left-column',
-    responsiveWidth: true
-  });
+  select2($);
 
+  var stickyForm = new Sticksy(document.getElementById('filter-form'), {
+    topSpacing: 92,
+    listen: true
+  });
+  $(window).on('load resize orientationchange', function () {
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      stickyForm.hardRefresh()
+    } else{
+      stickyForm.disable();
+    }
+  });
 
   // Header class resize
   var timer;
@@ -447,89 +472,119 @@ var associate_id = 'discwsearc-21';
       else {
         $body.removeClass('compact-header');
       }
-      setTimeout(function() { $stickyForm.sticky('update'); }, 500);
       scrolling = false;
     }
   }, 250);
 
 
   var facets = {
-    characters: { selector: '#character' },
-    locations: { selector: '#location' },
-    series: { selector: '#series' },
-    year: { selector: '#year' },
+    characters: { selector: '#character', options: [] },
+    locations: { selector: '#location', options: [] },
+    series: { selector: '#series', options: [] },
+    year: { selector: '#year', options: [] },
   }
 
   var filterList = function () {
     var facetParams = {};
-    $.each(facets, function(index, facetSettings) {
+    $.each(facets, function(facet, facetSettings) {
       var facetValue = facetSettings.$el.val();
       if (facetValue.length > 0) {
-        facetParams[index] = facetValue;
+        facetParams[facet] = facetValue;
       }
     });
 
-
     shuffleList.filter(function (element) {
-      var elementData = $.data(element);
+      var elementData = element.dataset;
 
       for (var facetKey in facetParams) {
-        if (_.intersection(elementData[facetKey], facetParams[facetKey]).length !== facetParams[facetKey].length) {
+        if (facetParams[facetKey].length && typeof elementData[facetKey] === 'undefined') {
           return false;
+        }
+        else {
+          var elementFacetData = JSON.parse(elementData[facetKey]);
+          if (_.intersection(elementFacetData, facetParams[facetKey]).length !== facetParams[facetKey].length) {
+            return false;
+          }
         }
       }
       return true;
     });
   };
 
-
   var $list = $('#book_list');
-
-  // Pre-process facets
-  $.each(facets, function(index, facetSettings) {
-    if (typeof(facets[index].options) === 'undefined') {
-      facets[index].options = [];
-    }
-    facets[index].$el = $(facetSettings.selector);
-  });
 
   // Process books
   $.each(books, function (i, book) {
-    var $newBookElement = $(Discworld.templates.book(book));
-    $list.append($newBookElement);
+    var newBookEl = document.createElement('span');
+    newBookEl.classList.add('book', 'col-6', 'col-md-3');
 
-    $.each(facets, function(index, facetSettings) {
-      if (typeof(book[index]) !== 'undefined') {
-        $newBookElement.data(index, book[index]);
+    var imageWrapper = document.createElement('div');
+    imageWrapper.classList.add('cover');
+    newBookEl.appendChild(imageWrapper)
 
-        if (book[index].constructor === Array) {
-          $.each(book[index], function (bookIndex, value) {
-            if (facets[index].options.indexOf(value) === -1) {
-              facets[index].options.push(value);
+    var image = document.createElement('img');
+    image.src = book.cover;
+    imageWrapper.appendChild(image);
+
+    var overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    newBookEl.appendChild(overlay);
+
+    var title = document.createElement('h3');
+    title.innerText = book.title;
+    overlay.appendChild(title)
+
+    if (typeof(book.links) !== 'undefined') {
+      book.links.forEach(link => {
+        var el = document.createElement('a');
+        el.setAttribute('target', '_blank');
+        el.innerText = link.text;
+        if (link.isbn) {
+          el.setAttribute('href', 'https://amazon.co.uk/gp/product/' + link.isbn + '?tag=' + associate_id);
+        }
+        else {
+          return
+        }
+
+        overlay.appendChild(el);
+      })
+    }
+
+    Object.keys(facets).forEach(facet => {
+      if (typeof(book[facet]) !== 'undefined') {
+        newBookEl.dataset[facet] = JSON.stringify(book[facet]);
+
+        if (book[facet].constructor === Array) {
+          $.each(book[facet], function (bookIndex, value) {
+            if (facets[facet].options.indexOf(value) === -1) {
+              facets[facet].options.push(value);
             }
           });
         }
         else {
-          if (facets[index].options.indexOf(book[index]) === -1) {
-            facets[index].options.push(book[index]);
+          if (facets[facet].options.indexOf(book[facet]) === -1) {
+            facets[facet].options.push(book[facet]);
           }
         }
       }
     });
+
+    $list.append(newBookEl);
+    book.el = newBookEl;
   });
 
   // Post process facets
-  $.each(facets, function(index, facetSettings) {
+  $.each(facets, function(facet, facetSettings) {
     facetSettings.options.sort();
 
-    $.each(facetSettings.options, function (k, v) {
-      facetSettings.$el
-        .append($('<option></option>')
-          .attr('value', v)
-          .text(v));
+    facetSettings.$el = $(facetSettings.selector, stickyForm.nodeRef);
+    facetSettings.$el.select2({
+      theme: 'bootstrap-5',
+      data: facetSettings.options.map((text) => { return {'id': text, 'text': text} }),
+      allowClear: true,
+      placeholder: 'Select a ' + facet
     });
     facetSettings.$el.on('change', filterList);
-    facetSettings.$el.chosen();
   });
 
 
@@ -538,17 +593,13 @@ var associate_id = 'discwsearc-21';
   var imgLoad = new imagesLoaded($images.get()); //eslint-disable-line new-cap
 
   imgLoad.on('always', function () {
+    const maxHeight = books.reduce((v, book) => {
+      return (v > book.el.offsetHeight) ? v : book.el.offsetHeight
+    }, 0);
+    document.documentElement.style.setProperty('--book-min-height', maxHeight + 'px');
+
     shuffleList = new Shuffle($list, {
       itemSelector: '.book'
     });
   });
-
-  $list.on('click', '.book', function(event) {
-    var $book = $(event.currentTarget);
-    console.log($book.data('asin'));
-
-    var url = 'https://amazon.co.uk/gp/product/' + $book.data('asin') + '?tag=' + associate_id;
-    window.open(url, '_blank');
-
-  });
-})(jQuery, window.shuffle);
+})(jQuery, select2, Shuffle, _, Sticksy);
