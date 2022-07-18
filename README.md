@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/njt1982/discworld-search.svg?branch=master)](https://travis-ci.org/njt1982/discworld-search)
 
+![Build Status](https://github.com/njt1982/discworld-search/actions/workflows/deploy.yml/badge.svg)
+
+
 # Discworld Search
 
 This repository is for a Discworld book browsing website. It lets you find books
