@@ -2,81 +2,165 @@ $icon-font-path: '../fonts/';
 $border-radius-large: 0;
 $headings-font-family: 'Slabo 27px';
 $headings-font-weight: 400;
-$font-family-sans-serif: 'Open Sans Condensed', sans-serif;
+$font-family-sans-serif: 'Barlow Condensed', sans-serif;
 $font-weight-normal:300;
+$font-size-base: 1.25rem;
 
-// bower:scss
-@import "bower_components/bootstrap/scss/bootstrap.scss";
-// endbower
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Slabo+27px');
-
+@import "bootstrap/scss/bootstrap";
+@import "select2/src/scss/core";
+@import "select2-bootstrap-5-theme/src/include-all";
 
 .jumbotron {
-  &, p.lead, h1 {
-    transition: all 0.5s ease;
-  }
-  p.lead {
-    height: 1.875em;
-    overflow: hidden;
-    opacity: 1;
-  }
+  background-color: $gray-100;
+
   body.compact-header & {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    background-color: rgba(#eceeef, 0.95);
-    p.lead {
-      height: 0;
-      margin:0;
-      opacity: 0;
-    }
-    h1 {
-      margin: 0;
-    }
+    background-color: rgba($gray-100, 0.9);
   }
 }
 
 #content {
-  margin-top: 16em;
+  margin-top: 9rem;
   transition: all 0.5s ease;
-  body.compact-header & {
-    margin-top: 4em;
+  @include media-breakpoint-up(md) {
+    margin-top: 6rem;
   }
 }
 
 #book_list {
   .book {
-    margin: 0 0 $line-height-base 0;
+    margin: 0 0 $spacer*2 0;
     text-decoration: none;
-    text-align: center;
-    color: $body-color;
-    cursor: pointer;
-    &:hover {
-      background-color: $gray-lighter;
-    }
-    div.title {
-      display: table;
-      width: 100%;
-      margin-bottom: 1rem;
-      h3 {
-        display: table-cell;
-        line-height: 1.1em;
-        height: 4.4em;
-        text-align: center;
-        vertical-align: bottom;
-      }
-    }
-    div.cover {
-      padding-top: 175%;
+    color: $gray-100;
+    min-height: var(--book-min-height);
+    padding-top: $grid-gutter-width * .5;
+
+    .cover {
       position: relative;
+      padding-bottom: 170%;
+      overflow: hidden;
+
       img {
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform ease 200ms;
       }
+    }
+
+    .overlay {
+      position: absolute;
+      top: $grid-gutter-width * .5;
+      right: $grid-gutter-width * .5;
+      left: $grid-gutter-width * .5;
+      bottom: 0;
+      background: rgba(0,0,0, 0.75);
+      opacity: 0;
+      transition: opacity ease 200ms;
+      padding: $spacer * .5;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        text-align: center;
+      }
+      a {
+        color: $gray-300;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border ease 0.2s;
+        padding-top: 0.5rem;
+
+        &:hover {
+          border-color: $gray-300;
+        }
+
+        &:after {
+          content: url('data:image/svg+xml,<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 13C12.5523 13 13 12.5523 13 12V3C13 2.44771 12.5523 2 12 2H3C2.44771 2 2 2.44771 2 3V6.5C2 6.77614 2.22386 7 2.5 7C2.77614 7 3 6.77614 3 6.5V3H12V12H8.5C8.22386 12 8 12.2239 8 12.5C8 12.7761 8.22386 13 8.5 13H12ZM9 6.5C9 6.5001 9 6.50021 9 6.50031V6.50035V9.5C9 9.77614 8.77614 10 8.5 10C8.22386 10 8 9.77614 8 9.5V7.70711L2.85355 12.8536C2.65829 13.0488 2.34171 13.0488 2.14645 12.8536C1.95118 12.6583 1.95118 12.3417 2.14645 12.1464L7.29289 7H5.5C5.22386 7 5 6.77614 5 6.5C5 6.22386 5.22386 6 5.5 6H8.5C8.56779 6 8.63244 6.01349 8.69139 6.03794C8.74949 6.06198 8.80398 6.09744 8.85143 6.14433C8.94251 6.23434 8.9992 6.35909 8.99999 6.49708L8.99999 6.49738" fill="white"/> </svg>');
+          display: inline-block;
+          transform: scale(1.2) translate(0, 2px);
+          margin-left: 4px;
+        }
+      }
+    }
+
+    &:hover {
+      .cover {
+        img {
+          transform: scale(1.1);
+        }
+      }
+      .overlay {
+        opacity: 1;
+      }
+    }
+
+  }
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple {
+  .select2-search,
+  .select2-selection__rendered {
+    display: inline;
+  }
+  .select2-selection__rendered {
+    .select2-selection__choice {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+
+      .select2-selection__choice__remove {
+        display: inline-block;
+        padding: 0;
+        background-position: 0;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $gray-900;
+    color: $gray-100;
+  }
+  .jumbotron {
+    background-color: $gray-800;
+    body.compact-header & {
+      background-color: rgba($gray-800, 0.9);
+    }
+  }
+
+  .select2-container--bootstrap-5 {
+    .select2-selection,
+    .select2-dropdown {
+      background-color: $gray-800;
+      color: $gray-100;
+    }
+
+    .select2-dropdown {
+      .select2-results__options {
+        .select2-results__option {
+          &.select2-results__option--highlighted {
+            background-color: $gray-700;
+            color: $gray-200;
+          }
+        }
+      }
+    }
+
+    .select2-selection__rendered .select2-selection__choice {
+      background-color: $gray-300;
+      color: $gray-600;
+    }
+
+    .select2-search__field {
+      color: $gray-100;
     }
   }
 }

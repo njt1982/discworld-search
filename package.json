@@ -1,41 +1,39 @@
 {
+  "name": "Discworld Search",
   "private": true,
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=16.0"
+  },
+  "source": [
+    "app/styles/main.scss",
+    "app/index.html"
+  ],
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
   },
   "devDependencies": {
-    "babel-core": "^6.23.1",
-    "babel-preset-es2015": "^6.22.0",
-    "browser-sync": "^2.18.8",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-cache": "^0.4.5",
-    "gulp-clean-css": "^3.0.2",
-    "gulp-declare": "^0.3.0",
-    "gulp-define-module": "^0.1.5",
-    "gulp-eslint": "^3.0.1",
-    "gulp-handlebars": "^4.0.0",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^3.1.1",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-minify-html": "^1.0.6",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-size": "^2.1.0",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^2.0.1",
-    "gulp-useref": "^3.1.2",
-    "main-bower-files": "^2.13.1",
-    "opn": "^4.0.2",
-    "sync-request": "^4.0.1",
-    "wiredep": "^4.0.0",
-    "handlebars": "^4.0.0"
+    "@parcel/transformer-sass": "^2.6.2",
+    "bootstrap": "^5.1.3",
+    "imagesloaded": "^5.0.0",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
+    "parcel": "^2.6.2",
+    "parcel-reporter-static-files-copy": "^1.3.4",
+    "select2": "^4.1.0-rc.0",
+    "select2-bootstrap-5-theme": "^1.3.0",
+    "shufflejs": "^6.1.0",
+    "sticksy": "^0.2.0"
   },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "eslintConfig": {
     "env": {
       "node": true,
+      "es6": true,
       "browser": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
     },
     "rules": {
       "quotes": [
