@@ -19,7 +19,7 @@ var books = [
       'Bel-Shamharoth',
       'Hrun, the Barbarian',
       'Liessa Wyrmbidder',
-      'the Luggage',
+      'The Luggage',
       'Rincewind',
       'Twoflower'
     ],
@@ -44,7 +44,7 @@ var books = [
     characters: [
       'Conan',
       'Ymper Trymon',
-      'the Luggage',
+      'The Luggage',
       'Rincewind',
       'Twoflower'
     ],
@@ -183,18 +183,35 @@ var books = [
     cover: 'images/covers/Eric.jpg',
     year: ['1990'],
     series: ['Rincewind'],
-    links: [],
-    characters: [],
-    locations: []
+    links: [
+      { text: 'Paperback', isbn: '1857989546' },
+      { text: 'UU Collection', isbn: '1473200172' }
+    ],
+    characters: [
+      'Rincewind',
+      'The Luggage'
+    ],
+    locations: [
+      'Dungeon Dimensions',
+      'Klatch'
+    ]
   },
   {
     title: 'Moving Pictures',
     cover: 'images/covers/Moving_Pictures.jpg',
     year: ['1990'],
     series: ['One-off'],
-    links: [],
-    characters: [],
-    locations: []
+    links: [
+      { text: 'Paperback', isbn: '0062237349' },
+      { text: 'UU Collection', isbn: '1473200237' }
+    ],
+    characters: [
+      'Cut-Me-Own-Throat Dibbler',
+      'Gaspode',
+      'Mustrum Ridcully',
+      'Sam Vimes'
+    ],
+    locations: ['Ankh-Morpork']
   },
   {
     title: 'Reaper Man',

@@ -7,6 +7,9 @@ $font-weight-normal:300;
 $font-size-base: 1.25rem;
 
 @import "bootstrap/scss/bootstrap";
+
+// See: https://github.com/apalfrey/select2-bootstrap-5-theme/pull/82 - needed until this PR is in a tagged release
+$s2bs5-border-color: $border-color;
 @import "select2/src/scss/core";
 @import "select2-bootstrap-5-theme/src/include-all";
 
